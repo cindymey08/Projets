@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiXiuey</title>
+    <script src="https://docs.vuejs.id/js/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>MiXiuey</h1>
+        <div v-for ="data in dataMixe">
+            {{data.nama}}
+            {{data.harga}}
+            {{data.image}}
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Harga</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for ="data in dataMixe">
+                <td> {{data.nama}}</td>
+                <td> {{data.harga}}</td>
+                <td>  {{data.image}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data:function(){
+                return{
+                    dataMixe : null,
+                }
+            },
+            methods :{
+                getMixe : function(){
+                    axios.get('https://projets-chi.vercel.app/mixieuy').then(response => {
+                       this.dataMixe= response.data
+                    })
+                },
+                //Method pos
+            },
+            mounted (){
+                //panggil method  ()
+                this.getMixe()
+            }
+        })
+    </script>
+    
+</body>
+</html>
