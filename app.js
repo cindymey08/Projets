@@ -18,9 +18,12 @@ app.use(bodyParser.json());
 
 //(7)import routes
 const mixieuyRoutes = require('./routes/mixieuy')
+const karyawanRoutes = require('./routes/karyawan')
 
 //(8)app.use(mendaftarkan middleware baru ke express)
 app.use('/mixieuy',mixieuyRoutes)
+app.use('/karyawan',karyawanRoutes)
+
 
 
 // (3)koneksi ke data base mongodb
