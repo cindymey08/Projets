@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mixieuy</title>
+    <script src="https://docs.vuejs.id/js/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>    
+    <link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app" class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center">Daftar Menu Mixieuy</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div  class="col-12 col-md-6 col-lg-4" v-for ="data in dataMixe">
+                   
+                    <div class="card" style="width: 18rem;">
+                        <img :src="data.image" class="card-img-top" width="150px" height="300px" alt="...">
+                        <div class="card-body fs-5">
+                         <h5> {{data.nama}}</h5>
+                         <h5>{{data.harga}}</h5>
+                        </div>
+                      </div>
+            </div>
+        </div>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data:function(){
+                return{
+                    dataMixe : null,
+                }
+            },
+            methods :{
+                getMixe : function(){
+                    axios.get('https://projets-chi.vercel.app/mixieuy').then(response => {
+                       this.dataMixe= response.data
+                    })
+                },
+                //Method pos
+            },
+            mounted (){
+                //panggil method  ()
+                this.getMixe()
+            }
+        })
+    </script>
+</body>
+</html>

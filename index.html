@@ -3,59 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MiXiuey</title>
-    <script src="https://docs.vuejs.id/js/vue.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>hii mixieuy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>    
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-    <div id="app">
-        <h1>MiXiuey</h1>
-        <div v-for ="data in dataMixe">
-            {{data.nama}}
-            {{data.harga}}
-            {{data.image}}
-        </div>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>Nama</th>
-                    <th>Harga</th>
-                    <th>Image</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for ="data in dataMixe">
-                <td> {{data.nama}}</td>
-                <td> {{data.harga}}</td>
-                <td>  {{data.image}}</td>
-            </tr>
-            </tbody>
-        </table>
-
+    <section>
+        <header class="container-fluid">
+            <nav class="navbar navbar-expand-lg container-fluid ">
+                <div class="container-fluid justify-content-center ">
+                  <a class="navbar-brand" href="#">
+                    <img src="Image/logo-mixieuy.png" alt="mixuey" width="100" height="100">
+                  </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse ml-auto justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                      <li class="nav-item  ">
+                        <a class="nav-link text-white " aria-current="page" href="index.html">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-white" href="contact.us.html">contact Us</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-white" href="produk.html">Product</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-white" href="Karyawan.html">Daftar Karyawan</a>
+                      </li>
+                    </ul>
+                 </div>
+                </div>
+              </nav>
+    </header>
     </div>
-    <script>
-        let vm = new Vue({
-            el: '#app',
-            data:function(){
-                return{
-                    dataMixe : null,
-                }
-            },
-            methods :{
-                getMixe : function(){
-                    axios.get('https://projets-chi.vercel.app/mixieuy').then(response => {
-                       this.dataMixe= response.data
-                    })
-                },
-                //Method pos
-            },
-            mounted (){
-                //panggil method  ()
-                this.getMixe()
-            }
-        })
-    </script>
+    <div class="content d-lg-flex">
+        <div class="textBox">
+            <h2>It's not just Ice-Cream <br>It's <span>Mixieuy</span></h2>
+            <p>Mixieuy tidak hanya menjual ice ream saja melainkan menjual minuman dan botol 
+                yang diproduksi sendiri,<br>Mixieuy juga sudah bersertifikat 100% HALAL
+            </p>
+            <a href="produk.html">Learn More</a>
+        
+            
+        </div>
+        <div class="imgBox">
+            <img src="Image/img1-removebg-preview.png">
+    </div>
+        </div>
+</section>
+    
     
 </body>
 </html>
